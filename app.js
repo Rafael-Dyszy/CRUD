@@ -4,11 +4,13 @@ import mongoose from 'mongoose';
 
 import { studentRouter } from './routes/studentRoutes.js';
 
+require('dotenv').setting();
+
 // concetion DB
-(async () => {
+async () => {
   try {
     await mongoose.connect(
-      'mongodb+srv://igti:rafaeldyszy@cluster0-jfolz.mongodb.net/grades',
+      `mongodb+srv://${processa.env.USERDB}:${processa.env.PWDDB}@cluster0-jfolz.mongodb.net/grades`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -17,10 +19,10 @@ import { studentRouter } from './routes/studentRoutes.js';
   } catch (err) {
     console.log('Erro ao concetar');
   }
-})();
+};
 
 const app = express();
 app.use(express.json());
 app.use(studentRouter);
 
-app.listen(3000, () => console.log('API iniciada'));
+app.listen(process.env.PORT, () => console.log('API iniciada'));
