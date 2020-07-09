@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 
 import { studentRouter } from './routes/studentRoutes.js';
 
-require('dotenv').setting();
+require('dotenv').config();
 
 // concetion DB
 async () => {
