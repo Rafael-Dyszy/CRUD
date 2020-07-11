@@ -6,7 +6,6 @@ import { studentRouter } from './routes/studentRoutes.js';
 
 const app = express();
 
-require('dotenv').config();
 // concetion DB
 (async () => {
   try {
