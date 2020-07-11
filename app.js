@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 
 import { studentRouter } from './routes/studentRoutes.js';
 
+const app = express();
+
 require('dotenv').config();
 
 // concetion DB
@@ -21,7 +23,6 @@ async () => {
   }
 };
 
-const app = express();
 app.use(express.json());
 app.use(studentRouter);
 
