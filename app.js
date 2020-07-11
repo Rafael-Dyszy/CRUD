@@ -7,12 +7,11 @@ import { studentRouter } from './routes/studentRoutes.js';
 const app = express();
 
 require('dotenv').config();
-
 // concetion DB
-async () => {
+(async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${processa.env.USERDB}:${processa.env.PWDDB}@cluster0-jfolz.mongodb.net/grades`,
+      `mongodb+srv://${process.env.USERDB}:${process.env.PWDDB}@cluster0-jfolz.mongodb.net/grades?retryWrites=true&w=majority`,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -21,7 +20,7 @@ async () => {
   } catch (err) {
     console.log('Erro ao concetar');
   }
-};
+})();
 
 app.use(express.json());
 app.use(studentRouter);
