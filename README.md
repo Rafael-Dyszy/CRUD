@@ -1,2 +1,2 @@
 # Create routes
-e.g. creation of simple routes with MongoDB, I used Node.js
+Creation of simple routes with MongoDB, Node.js, Mongoose and Express.
